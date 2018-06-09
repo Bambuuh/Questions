@@ -11,7 +11,7 @@ export class ChoiceComponent implements OnInit {
 
  @Input() choice: Choice;
  @Input() votePercentage: number;
- @Output() voted = new EventEmitter();
+ @Input() selected: boolean;
 
   constructor(private questionsService: QuestionsService) { }
 
@@ -21,11 +21,5 @@ export class ChoiceComponent implements OnInit {
   public getPercentageWidth() {
     return this.votePercentage + 'px';
   }
-
-  public vote() {
-    this.questionsService.post(this.choice.url, {}).subscribe(data => {
-      this.voted.emit(data);
-    });
-  }
-
 }
+

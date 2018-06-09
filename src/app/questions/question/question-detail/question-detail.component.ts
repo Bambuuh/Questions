@@ -10,7 +10,8 @@ import { Question } from '../../Question';
 })
 export class QuestionDetailComponent implements OnInit {
   private url: string;
-  private question: Question;
+  public question: Question;
+  public selectedIndex: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,8 +21,9 @@ export class QuestionDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchChoices()
-      .subscribe((question: Question) => (this.question = question));
+    this.fetchChoices().subscribe(
+      (question: Question) => (this.question = question)
+    );
   }
 
   public getVotePercentage(index: number) {
@@ -34,15 +36,25 @@ export class QuestionDetailComponent implements OnInit {
   }
 
   public fetchChoices() {
-    return this.questionsService
-      .get(this.url);
+    return this.questionsService.get(this.url);
   }
 
-  public updateVotes(event: { choice: string, url: string, votes: 76 }) {
-    this.fetchChoices().subscribe((question: Question) => {
-      this.question = question;
-      const votedChoice = this.question.choices.find(choice => choice.choice === event.choice);
-      votedChoice.votes = Math.max(votedChoice.votes, event.votes);
-    });
+  public vote() {
+    let choice = this.question.choices[this.selectedIndex];
+    const chosenIndex = this.selectedIndex;
+    this.selectedIndex = undefined;
+    this.questionsService
+      .post(choice.url, {})
+      .subscribe((data: { choice: string; url: string; votes: number }) => {
+        this.fetchChoices().subscribe((question: Question) => {
+          this.question = question;
+          choice = this.question.choices[chosenIndex];
+          choice.votes = Math.max(choice.votes, data.votes);
+        });
+      });
+  }
+
+  public select(index: number) {
+    this.selectedIndex = index;
   }
 }

@@ -1,4 +1,4 @@
-<div class="container" (click)="vote()">
+<div class="container" [ngClass]="{'selected' : selected}">
   <div>{{choice.choice}}</div>
   <div class="result-container">
     <div>{{choice.votes}}</div>
