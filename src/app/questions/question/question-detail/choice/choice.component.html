@@ -1,0 +1,10 @@
+<div class="container" (click)="vote()">
+  <div>{{choice.choice}}</div>
+  <div class="result-container">
+    <div>{{choice.votes}}</div>
+    <div>{{votePercentage}}%</div>
+    <div class="percentage-container">
+      <div [style.width.px]="votePercentage" class="percentage-fill"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="container" (click)="goToQuestionDetails()">
+  <h3>{{question.question}}</h3>
+  <p>Published at: {{question.published_at | date}}</p>
+  <p>Number of choices: {{question.choices.length}}</p>
+</div>

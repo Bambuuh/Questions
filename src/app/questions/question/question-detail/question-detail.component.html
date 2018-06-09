@@ -1,0 +1,10 @@
+<h1>Questions Detail</h1>
+<div *ngIf="question">
+  <h3>Question: {{question.question}}</h3>
+  <app-choice
+    *ngFor="let choice of question.choices; let i = index"
+    [choice]="choice"
+    [votePercentage]="getVotePercentage(i)"
+    (voted)="updateVotes($event)"
+  ></app-choice>
+</div>

@@ -1,0 +1,16 @@
+.container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+p {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

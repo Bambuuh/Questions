@@ -1,0 +1,43 @@
+:host {
+    display: block;
+}
+.container {
+    background: white;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 400px;
+    cursor: pointer;
+    background: #f39c12;
+    color: white;
+}
+
+.result-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > div {
+        margin-left: 10px;
+        min-width: 50px;
+    }
+}
+
+.percentage-container {
+    height: 20px;
+    width: 100px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.percentage-fill {
+    background: #2980b9;
+    height: 20px;
+    margin: 0;
+    display: inline-block;
+}
