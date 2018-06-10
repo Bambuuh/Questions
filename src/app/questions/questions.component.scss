@@ -1,9 +1,18 @@
 .container {
     display: flex;
     flex-flow: wrap;
-    justify-content: space-around
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+h1 {
+    margin: 0 10px;
+    margin-bottom: 20px;
 }
 
 app-question {
-    margin: 20px;
+    margin: 10px;
+    flex: 1 0;
+    max-width: 300px;
+    min-width: 250px;
 }

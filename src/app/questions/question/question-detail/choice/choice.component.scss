@@ -45,3 +45,28 @@
 .selected {
     background: #2c3e50;
 }
+
+.ranking {
+    display: flex;
+}
+
+.numerical {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: auto;
+        max-width: 300px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .result-container {
+        width: 100%;
+        margin-top: 20px;
+        > div {
+            margin-left: 0;
+        }
+    }
+}
