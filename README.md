@@ -1,4 +1,4 @@
-#Questions App
+# Questions App
 
 I've spent somewhere around 4 hours everyting included on this.
 Don' forget to install packages with `npm i` from the root folder.
