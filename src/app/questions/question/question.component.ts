@@ -8,16 +8,10 @@ import { Router } from '@angular/router';
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent {
   @Input() question: Question;
 
-  public choices: Choice[];
-
   constructor(private router: Router) {}
-
-  ngOnInit() {
-    this.choices = this.question.choices;
-  }
 
   public goToQuestionDetails() {
     this.router.navigate(['questions', 'details'], { queryParams: { url: this.question.url }});

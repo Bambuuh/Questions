@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChoiceComponent } from './choice.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { QuestionsService } from '../../../../questions.service';
 
 describe('ChoiceComponent', () => {
   let component: ChoiceComponent;
@@ -8,7 +10,9 @@ describe('ChoiceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChoiceComponent ]
+      declarations: [ ChoiceComponent ],
+      imports: [HttpClientTestingModule],
+      providers: [QuestionsService]
     })
     .compileComponents();
   }));
@@ -16,7 +20,6 @@ describe('ChoiceComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ChoiceComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
